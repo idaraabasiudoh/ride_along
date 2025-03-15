@@ -3,7 +3,7 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() {
   runApp(const MyApp());
-  Stripe.publishableKey = pk_test_51R31wdISiLY6rJaVvtNZNaG211zZLCDrbis6t55fnqeWTa6dkwIVDBEPuAKyJylAMaTUtbu33T8mTc7UFVmzW8mO00JIhEkaHy;
+  Stripe.publishableKey = "pk_test_51R31wdISiLY6rJaVvtNZNaG211zZLCDrbis6t55fnqeWTa6dkwIVDBEPuAKyJylAMaTUtbu33T8mTc7UFVmzW8mO00JIhEkaHy";
 
 }
 
