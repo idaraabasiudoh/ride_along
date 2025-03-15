@@ -17,9 +17,9 @@ dependencies:
   google_maps_flutter: ^2.5.0 # Google Maps for location and route visualization
   geolocator: ^10.0.0 # Access device location for ride tracking
   http: ^1.1.0 # HTTP requests for Google Distance Matrix API or other services
+  flutter_stripe: ^11.4.0
 
 dev_dependencies:
-  flutter_stripe: ^11.4.0
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0 # Recommended lints for code quality
