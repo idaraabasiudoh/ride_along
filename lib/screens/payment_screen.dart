@@ -33,23 +33,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   Future<void> _handlePayment() async {
     try {
-    final paymentMethod = await Stripe.instance.createPaymentMethod(
-      PaymentMethodParams.card(
-        paymentMethodData: PaymentMethodData(
-          billingDetails: BillingDetails(
-            // Optional: Add billing details like name or address
+      final paymentMethod = await Stripe.instance.createPaymentMethod(
+        params: PaymentMethodParams.card(
+          paymentMethodData: PaymentMethodData(
+            billingDetails: BillingDetails(
+              // Optional: Add billing details if needed
+              name: 'John Doe', // Example
+              email: 'john@example.com', // Example
+            ),
           ),
         ),
-      ),
-    );
-    // Successfully created payment method, proceed to store it
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Payment method created: ${paymentMethod.id}')),
-    );
-  } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: $e')),
-    );
-  }
+      );
+      // Successfully created payment method, proceed to store it
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Payment method created: ${paymentMethod.id}')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error: $e')));
+    }
   }
 }

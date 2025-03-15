@@ -3,8 +3,13 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() {
   runApp(const MyApp());
+<<<<<<< HEAD
   Stripe.publishableKey = "pk_test_51R31wdISiLY6rJaVvtNZNaG211zZLCDrbis6t55fnqeWTa6dkwIVDBEPuAKyJylAMaTUtbu33T8mTc7UFVmzW8mO00JIhEkaHy";
 
+=======
+  Stripe.publishableKey =
+      "pk_test_51R31wdISiLY6rJaVvtNZNaG211zZLCDrbis6t55fnqeWTa6dkwIVDBEPuAKyJylAMaTUtbu33T8mTc7UFVmzW8mO00JIhEkaHy";
+>>>>>>> 0e38b36ccc0b2ba31589df9ef2528c3e0b3c1659
 }
 
 class MyApp extends StatelessWidget {
