@@ -1,0 +1,24 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing Flutter SDK"
+        - git clone https://github.com/flutter/flutter.git -b stable --depth 1
+        - export PATH="$PATH:`pwd`/flutter/bin"
+        - flutter config --no-analytics
+        - flutter doctor
+        - flutter pub get
+    build:
+      commands:
+        - flutter build web
+    postBuild:
+      commands:
+        - echo "Build completed"
+  artifacts:
+    baseDirectory: build/web
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - flutter/.pub-cache
