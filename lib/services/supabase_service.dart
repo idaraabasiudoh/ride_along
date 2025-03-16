@@ -22,4 +22,12 @@ class SupabaseService {
   User? getCurrentUser() => _client.auth.currentUser;
 
   Future<void> signOut() async => await _client.auth.signOut();
+
+  Future<void> createChat(String driverId, String passengerId) async {
+    await _client.from('chats').insert({
+      'driver_id': driverId,
+      'passenger_id': passengerId,
+      'messages': [],
+    });
+  }
 }

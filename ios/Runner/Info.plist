@@ -52,5 +52,11 @@
 	<string>We need your location for ride-sharing.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location for ride-sharing.</string>
+	<!-- Add notification permissions -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

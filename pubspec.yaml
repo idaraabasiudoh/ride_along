@@ -17,6 +17,9 @@ dependencies:
   geolocator: ^10.0.0 # Access device location for ride tracking
   http: ^1.1.0 # HTTP requests for Google Distance Matrix API or other services
   flutter_stripe: ^11.4.0
+  flutter_local_notifications: ^17.0.0
+  geocoding: ^2.1.0
+  flutter_map: ^8.1.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0 # Recommended lints for code quality
@@ -25,6 +28,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/schools.json
+    - assets/blue_logo.png
 
   # Assets section (uncomment and add your assets as needed)
   # assets:
