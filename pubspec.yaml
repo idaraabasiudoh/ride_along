@@ -8,10 +8,8 @@ environment:
   sdk: ">=3.7.2 <4.0.0" # Updated to ensure compatibility with modern Flutter versions.
 
 dependencies:
-  flutter_test: ^11.4.0
   flutter:
     sdk: flutter
-
   # Core UI and functionality
   cupertino_icons: ^1.0.8 # iOS-style icons for cross-platform consistency
   supabase_flutter: ^2.0.0 # Supabase integration for auth, database, and real-time
@@ -21,12 +19,12 @@ dependencies:
   flutter_stripe: ^11.4.0
 
 dev_dependencies:
-    sdk: flutter
   flutter_lints: ^5.0.0 # Recommended lints for code quality
 
 flutter:
-  uses-material-design: true # Enables Material Design icons and components
-
+  uses-material-design: true
+  assets:
+    - assets/schools.json
 
   # Assets section (uncomment and add your assets as needed)
   # assets:

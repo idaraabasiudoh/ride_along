@@ -45,5 +45,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<!-- Add location permissions -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location for ride-sharing.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your location for ride-sharing.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location for ride-sharing.</string>
 </dict>
 </plist>
