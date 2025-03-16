@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:ride_along/screens/driver_dashboard.dart';
+import 'package:ride_along/screens/passenger_dashboard.dart';
 import 'package:ride_along/services/supabase_service.dart';
 import 'package:ride_along/widgets/custom_button.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -20,13 +22,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _requestLocationPermissionAndUpdate(String role) async {
     setState(() => _isLoading = true);
     try {
-      // Check if location services are enabled
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
         throw Exception('Location services are disabled.');
       }
 
-      // Check and request location permissions
       LocationPermission permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
@@ -39,19 +39,34 @@ class _HomeScreenState extends State<HomeScreen> {
         throw Exception('Location permissions are permanently denied.');
       }
 
-      // Get live location
       Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high,
       );
       String liveLocation = '${position.latitude},${position.longitude}';
 
-      // Update profile with role and location
       final user = _supabaseService.getCurrentUser();
       if (user != null) {
         await _supabaseClient
             .from('profiles')
             .update({'role': role, 'live_location': liveLocation})
             .eq('id', user.id);
+
+        if (mounted) {
+          // Show respective dashboard after role selection
+          if (role == 'driver') {
+            await showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) => DriverDashboard(driverId: user.id),
+            );
+          } else if (role == 'passenger') {
+            await showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (context) => PassengerDashboard(passengerId: user.id),
+            );
+          }
+        }
       }
     } catch (e) {
       if (mounted) {
